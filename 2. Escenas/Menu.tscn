@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://3. Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://3. Imagenes/Background/background_layer_1.png" type="Texture" id=2]
+[ext_resource path="res://3. Imagenes/Background/background_layer_2.png" type="Texture" id=3]
+[ext_resource path="res://3. Imagenes/Background/background_layer_3.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 1, 0.0862745, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 1, 0.0862745, 1 )
+
+[node name="Menu" type="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -600.0
+margin_right = 512.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundLayer1" type="Sprite" parent="."]
+position = Vector2( 512, 300.5 )
+scale = Vector2( 3.2, 3.32778 )
+texture = ExtResource( 2 )
+
+[node name="BackgroundLayer2" type="Sprite" parent="BackgroundLayer1"]
+position = Vector2( 1.52588e-05, 0 )
+texture = ExtResource( 3 )
+
+[node name="BackgroundLayer3" type="Sprite" parent="BackgroundLayer1"]
+position = Vector2( 0, 1.52588e-05 )
+texture = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -22.0
+margin_right = 100.0
+margin_bottom = 22.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Comenzar" type="Button" parent="VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 20.0
+custom_styles/focus = SubResource( 1 )
+text = "Comenzar Juego"
+
+[node name="Salir" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 200.0
+margin_bottom = 44.0
+custom_styles/focus = SubResource( 2 )
+text = "Salir del Juego"
+
+[connection signal="pressed" from="VBoxContainer/Comenzar" to="." method="_on_Comenzar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_Salir_pressed"]
